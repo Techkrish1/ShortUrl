@@ -3,6 +3,6 @@ from . import views
 
 urlpatterns = [
     path('', views.home),
-    path('go', views.makeshorturl),
+    path('shortener', views.makeshorturl),
     path("<str:shorturl>", views.redirecturl)
 ]

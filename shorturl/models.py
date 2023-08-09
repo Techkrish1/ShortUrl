@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 class urlModel(models.Model):
-    longurl = models.CharField(max_length=500)
+    longurl = models.CharField(max_length=5000)
     shorturl = models.CharField(max_length=7)
     count = models.IntegerField(default=0)
 

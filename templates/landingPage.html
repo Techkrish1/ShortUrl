@@ -1,38 +1,26 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="jumbotron">
-    <h1 class="display-4">Welcome to URL Shortener!</h1>
-    <p class="lead">Shorten your URLs and track clicks.</p>
+<div class="landing_page">
+    <h1 class="display-4"><b><strong>Welcome to URL Shortener!</strong></b></h1>
+    <p class="lead">ShortURL is a free tool to shorten URLs and generate short links <br>
+        URL shortener allows to create a shortened link making it easy to share</p>
         <hr class="my-4">
-        <div>
+        <!-- <div>
             <form action="/go" method="POST">
                 {% csrf_token %}
                 <input type="text" name="longurl">
                 <input type="submit" name="" id="" value="Shorten">
             </form>
-        </div>
+        </div> -->
+        <form action="/shortener" method="POST" class="form-inline justify-content-center">
+            {% csrf_token %}
+            <div class="input-group mb-3">
+                <input type="text" class="form-control form-control-lg" name="longurl" placeholder="Enter your URL">
+                <div class="input-group-append">
+                    <button class="btn btn-primary btn-lg" type="submit">Shorten</button>
+                </div>
+            </div>
+        </form>
 </div>
 {% endblock %}
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <div>
-        <h1>URL Shortener</h1>
-    </div>
-    <div>
-        <form action="/go" method="POST">
-            {% csrf_token %}
-            <input type="text" name="longurl">
-            <input type="submit" name="" id="">
-        </form>
-    </div>
-</body>
-</html> -->
-

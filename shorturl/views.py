@@ -30,5 +30,5 @@ def redirecturl(request, shorturl):
         obj.save()
         return redirect(obj.longurl)
     else:
-        return HttpResponse("check your url")
+        return render(request, 'url_error.html')
 

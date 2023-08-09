@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    {% bootstrap_messages %}
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .error-title{
+            color: #FF5722;
+        }
+            
+        
+
+        .error-container {
+            text-align: center;
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .material-icons {
+            font-size: 48px;
+            color: #FF5722;
+        }
+        .error-title {
+            font-size: 24px;
+            margin-top: 10px;
+            color: #333;
+        }
+        .error-description {
+            margin-top: 10px;
+            color: #666;
+        }
+        .go-back-button {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="error-container">
+    <i class="material-icons">error</i>
+    <h2 class="error-title">An error occurred creating the Shortened URL</h2>
+    <p class="error-description">
+        The URL has not been shortened, possible errors:<br>
+        - Check if the domain is correct<br>
+        - Check if the site is online<br>
+        - Check the length of the URL is too small<br>
+        - Check the address bars and punctuation<br>
+        - The URL may be being used for spam<br>
+        - The URL may have been blocked<br>
+        - The URL may have been reported<br>
+        - The URL was recently shortened<br>
+        - The URL is not allowed
+    </p>
+    <div class="go-back-button">
+        <a href="http://127.0.0.1:8000/" class="btn btn-primary">Go back and try again</a>
+    </div>
+</div>
+
+</body>
+</html>
