@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="jumbotron">
+    <h1 class="display-4">Welcome to URL Shortener!</h1>
+    <p class="lead">Shorten your URLs and track clicks.</p>
+        <hr class="my-4">
+        <div>
+            <form action="/go" method="POST">
+                {% csrf_token %}
+                <input type="text" name="longurl">
+                <input type="submit" name="" id="" value="Shorten">
+            </form>
+        </div>
+</div>
+{% endblock %}
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h1>URL Shortener</h1>
+    </div>
+    <div>
+        <form action="/go" method="POST">
+            {% csrf_token %}
+            <input type="text" name="longurl">
+            <input type="submit" name="" id="">
+        </form>
+    </div>
+</body>
+</html> -->
+
