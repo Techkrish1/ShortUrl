@@ -2,6 +2,7 @@ from django.shortcuts import render, HttpResponse, redirect
 import random
 from .models import urlModel
 
+# landing page of web
 
 def home(request):
     return render(request, 'landingPage.html')

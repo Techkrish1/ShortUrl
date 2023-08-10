@@ -6,13 +6,6 @@
     <p class="lead">ShortURL is a free tool to shorten URLs and generate short links <br>
         URL shortener allows to create a shortened link making it easy to share</p>
         <hr class="my-4">
-        <!-- <div>
-            <form action="/go" method="POST">
-                {% csrf_token %}
-                <input type="text" name="longurl">
-                <input type="submit" name="" id="" value="Shorten">
-            </form>
-        </div> -->
         <form action="/shortener" method="POST" class="form-inline justify-content-center">
             {% csrf_token %}
             <div class="input-group mb-3">
