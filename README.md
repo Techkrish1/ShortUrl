@@ -19,8 +19,6 @@
 This is a brief demo of the functionality of the project.
 
 <p align="center">
-
-<p align="center">
 <img src="video_src/URL shortener.gif" alt="demo video" width="720"/>
 </p>
 
