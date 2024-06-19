@@ -1,19 +1,62 @@
 {% extends 'base.html' %}
-
+{% block title %}URL Shortener{% endblock %}
 {% block content %}
 <div class="landing_page">
     <h1 class="display-4"><b><strong>Welcome to URL Shortener!</strong></b></h1>
     <p class="lead">ShortURL is a free tool to shorten URLs and generate short links <br>
         URL shortener allows to create a shortened link making it easy to share</p>
         <hr class="my-4">
-        <form action="/shortener" method="POST" class="form-inline justify-content-center">
+        <form action="" class="form-inline justify-content-center" onsubmit="shortUrl(event)">
             {% csrf_token %}
             <div class="input-group mb-3">
-                <input type="text" class="form-control form-control-lg" name="longurl" placeholder="Enter your URL">
+                <input type="text" class="form-control form-control-lg" name="longurl" placeholder="Enter your URL" id="plainurl" >
                 <div class="input-group-append">
                     <button class="btn btn-primary btn-lg" type="submit">Shorten</button>
                 </div>
             </div>
         </form>
 </div>
+
+<script>
+  
+    
+    function shortUrl(event){
+        event.preventDefault();
+        var plainurl=document.getElementById('plainurl').value;
+        var user_ID=localStorage.getItem('urlUserID');
+        console.log(user_ID);
+        if(!user_ID){
+          user_ID=0;
+          console.log("Not have");
+        }
+        dataToSend={
+          plainurl:plainurl,
+          user_ID:user_ID
+        }
+        fetch('/createurl/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(dataToSend)
+            })
+            .then(response => {
+                if (response.ok) {            
+                        return response.json();
+                    }
+                    throw new Error('Network response was not ok.');
+            })  
+            .then(data => {
+                console.log(data);
+                let shortlink=data.shorturl;
+                if(shortlink!=""){
+                  window.location.href=shortlink;
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
+  
 {% endblock %}

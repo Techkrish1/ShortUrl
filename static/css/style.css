@@ -3,13 +3,13 @@ h1, h2{
 }
 
 
-.text-center {
+/* .text-center {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     height: 100%;
-}
+} */
 
 .card{
     border: none;
@@ -25,4 +25,7 @@ span.material-icons{
 .footer-icon{
     height: 15px;
     width: 18px;
+}
+
+.register{
 }

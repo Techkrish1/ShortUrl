@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>URL Shortener</title>
+    <title>{% block title %}{% endblock %}</title>
     {% load bootstrap5 %}
     {% bootstrap_css %}
     {% bootstrap_javascript %}
@@ -18,19 +18,28 @@
 
 
 <!-- -----------------Navbar ------------ -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container">
-            <a class="navbar-brand title" href="http://127.0.0.1:8000/">URL Shortener</a>
-            <div class="collapse navbar-collapse">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="http://127.0.0.1:8000/">Home</a>
-                    </li>
-                    <!-- Add more navigation items -->
-                </ul>
-            </div>
-        </div>
-    </nav>
+    
+<nav class="navbar navbar-expand-md bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{% url 'home' %}">URL Shortener</a>
+      <button id="navBtn" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link text-black" aria-current="page" href="{% url 'home' %}">Home</a>
+          </li>
+          <li class="nav-item">
+            <div class="nav-link text-black" style="cursor: pointer;" onclick="myUrls()">URLs</div>
+          </li>
+          <li>
+            <a class="nav-link text-black" href="{% url 'login' %}">Log In</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
     <!-- -----------------Body of the web------------ -->
 
@@ -162,4 +171,15 @@
         </div>
     </footer>
 </body>
+<script>
+    function myUrls(){
+    var user_ID=localStorage.getItem("urlUserID");
+    console.log(user_ID);
+    if(user_ID){
+      window.location.href=window.location.origin+"/myurl/"+user_ID;
+    }else{
+      window.location.href=window.location.origin+"/myurl/"+0;
+    }
+  }
+</script>
 </html>

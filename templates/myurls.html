@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}My URLs{% endblock %}
+
+{% block content %}
+
+
+<div style="overflow-x: auto;">
+    <table>
+      <tr>
+        <th>No.</th>
+        <th>ShortUrl</th>
+        <th>LongUrl</th>
+      </tr>
+
+      {% for mylink in myUrl %}
+      <tr>
+          <th scope="row">{{forloop.counter}}</th>
+          <td>{{mylink.shorturl}}</td>
+          <td>{{mylink.longurl}}</td>
+         </tr>
+      {% endfor %}
+    </table>
+  </div>
+  
+
+{% endblock %}
