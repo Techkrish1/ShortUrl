@@ -3,18 +3,17 @@ h1, h2{
 }
 
 
-/* .text-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 100%;
-} */
 
 .card{
     border: none;
 }
 
+table {
+    width: auto;
+}
+th, td {
+    text-align: center;
+}
 
 span.material-icons{
     font-size: 100px;
@@ -26,6 +25,8 @@ span.material-icons{
     height: 15px;
     width: 18px;
 }
-
-.register{
-}
+/* .authbox{
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+} */

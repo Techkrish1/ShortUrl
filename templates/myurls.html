@@ -5,23 +5,55 @@
 {% block content %}
 
 
-<div style="overflow-x: auto;">
-    <table>
-      <tr>
-        <th>No.</th>
-        <th>ShortUrl</th>
-        <th>LongUrl</th>
-      </tr>
+<div style="overflow-x: auto; display: flex; justify-content: center;">
+  <table style="border-collapse: collapse; margin: 20px 0; font-size: 18px; text-align: center;">
+      <thead>
+          <tr>
+              <th style="background-color: #f2f2f2; padding: 12px;">No</th>
+              <th style="background-color: #f2f2f2; padding: 12px;">Long URL</th>
+              <th style="background-color: #f2f2f2; padding: 12px;">Short URL</th>
+              <th style="background-color: #f2f2f2; padding: 12px;">Copy</th>
+          </tr>
+      </thead>
+      <tbody>
+          {% for mylink in myUrl %}
+          <tr>
+              <th scope="row" style="border-bottom: 1px solid #ddd; padding: 12px;">{{ forloop.counter }}</th>
+              <td style="border-bottom: 1px solid #ddd; padding: 12px;">
+                  <a class="table_link" href="{{ mylink.longurl }}" target="_blank" title="{{ mylink.longurl }}">
+                    <i class="bi bi-link-45deg"></i>
+                  </a>
+              </td>
+              <td style="border-bottom: 1px solid #ddd; padding: 12px;">
+                  <a class="table_link" href="{{ mylink.shorturl }}" target="_blank">{{ mylink.shorturl }}</a>
+              </td>
+              <td style="border-bottom: 1px solid #ddd; padding: 12px;">
+                  <button onclick="copyToClipboard('{{ mylink.shorturl }}')" style="background: none; border: none; cursor: pointer;">
+                    <i class="bi bi-clipboard"></i>
+                  </button>
+              </td>
+          </tr>
+          {% endfor %}
+      </tbody>
+  </table>
+</div>
 
-      {% for mylink in myUrl %}
-      <tr>
-          <th scope="row">{{forloop.counter}}</th>
-          <td>{{mylink.shorturl}}</td>
-          <td>{{mylink.longurl}}</td>
-         </tr>
-      {% endfor %}
-    </table>
-  </div>
+
+<script>
+  function copyToClipboard(text) {
+      const tempInput = document.createElement('input');
+      tempInput.style.position = 'absolute';
+      tempInput.style.left = '-9999px';
+      tempInput.value = text;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      document.execCommand('copy');
+      document.body.removeChild(tempInput);
+      alert('Short URL copied to clipboard: ' + text);
+  }
+</script>
+
+
   
 
 {% endblock %}

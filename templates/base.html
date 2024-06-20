@@ -7,6 +7,8 @@
     <title>{% block title %}{% endblock %}</title>
    
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -19,7 +21,7 @@
     
 <nav class="navbar navbar-expand-md bg-body-tertiary">
     <div class="container-fluid">
-      <a class="navbar-brand" href="{% url 'home' %}">URL Shortener</a>
+      <a class="navbar-brand" href="{% url 'home' %}" style="color: blue;">URL Shortener</a>
       <button id="navBtn" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -41,12 +43,12 @@
 
     <!-- -----------------Body of the web------------ -->
 
+    {% block content %}
+    
+    {% endblock %}
     <div class="container mt-5 container-fluid bg-color text-center ">
 
         <!-- -----------------paste the url ------------ -->
-        {% block content %}
-        
-        {% endblock %}
 
         <!-- -----------------contents about url shortener----------- -->
 
@@ -90,7 +92,7 @@
                                     gpp_good
                                  </span>
                             <h5 class="card-title">Secure</h5>
-                            <p class="card-text">It is fast and secure, our service has HTTPS protocol and data encryption.</p>
+                            <p class="card-text">It is fast and secure, our service has HTTPS protocol</p>
                         </div>
                     </div>
                 </div>
@@ -100,8 +102,8 @@
                             <span class="material-icons">
                                 analytics
                                 </span>
-                            <h5 class="card-title">Statistics</h5>
-                            <p class="card-text">Check the number of clicks that your shortened URL received.</p>
+                            <h5 class="card-title">Track</h5>
+                            <p class="card-text">Access your all created stortened URLs. Maintain a small dashboard</p>
                         </div>
                     </div>
                 </div>
@@ -112,7 +114,7 @@
                                 front_hand
                                 </span>
                             <h5 class="card-title">Reliable</h5>
-                            <p class="card-text">All links that try to disseminate spam, viruses and malware are deleted.</p>
+                            <p class="card-text">All shortened links are so reliable. Providing correct results.</p>
                         </div>
                     </div>
                 </div>
