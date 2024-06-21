@@ -25,10 +25,10 @@
                   </a>
               </td>
               <td style="border-bottom: 1px solid #ddd; padding: 12px;">
-                  <a class="table_link" href="{{ mylink.shorturl }}" target="_blank">{{ mylink.shorturl }}</a>
+                  <a class="table_link" href="{{baseurl}}{{ mylink.shorturl }}" target="_blank">{{ mylink.shorturl }}</a>
               </td>
               <td style="border-bottom: 1px solid #ddd; padding: 12px;">
-                  <button onclick="copyToClipboard('{{ mylink.shorturl }}')" style="background: none; border: none; cursor: pointer;">
+                  <button onclick="copyToClipboard('{{baseurl}}{{ mylink.shorturl }}')" style="background: none; border: none; cursor: pointer;">
                     <i class="bi bi-clipboard"></i>
                   </button>
               </td>

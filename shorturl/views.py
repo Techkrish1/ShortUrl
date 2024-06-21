@@ -109,8 +109,9 @@ def redirecturl(request, shorturl):
 def getMyUrls(request,user_id):
     if user_id:
         myOb=urlModel.objects.filter(url_user_id=user_id)
+        full_url = request.build_absolute_uri('/')
         if len(myOb)>0:
-            return render(request,'myurls.html',{'myUrl':myOb})
+            return render(request,'myurls.html',{'myUrl':myOb,'baseurl':full_url})
     return render(request,'myurls.html')
 
 
