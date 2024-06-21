@@ -21,9 +21,37 @@ span.material-icons{
     margin-bottom: 20px;
 }
 
-.footer-icon{
-    height: 15px;
-    width: 18px;
+
+.footer {
+    background-color: #f8f9fa;
+    color: #343a40;
+    padding: 1.5rem 0;
+    margin-top: 3rem;
+}
+
+.footer .list-inline {
+    padding-left: 0;
+    list-style: none;
+}
+
+.footer .list-inline-item {
+    margin-right: 1rem;
+}
+
+
+
+.footer p, .footer small {
+    margin: 0;
+}
+
+@media (max-width: 767.98px) {
+    .footer .row {
+        flex-direction: column;
+    }
+
+    .footer .col-md-6 {
+        margin-bottom: 1rem;
+    }
 }
 /* .authbox{
     width: 100%;
