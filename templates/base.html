@@ -1,183 +1,184 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}{% endblock %}</title>
-   
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-</head>
-<body>
-
-
-<!-- -----------------Navbar ------------ -->
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}{% endblock %}</title>
     
-<nav class="navbar navbar-expand-md bg-body-tertiary">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="{% url 'home' %}" style="color: blue;">URL Shortener</a>
-      <button id="navBtn" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link text-black" aria-current="page" href="{% url 'home' %}">Home</a>
-          </li>
-          <li class="nav-item">
-            <div class="nav-link text-black" style="cursor: pointer;" onclick="myUrls()">MyURLs</div>
-          </li>
-          <li>
-            <a class="nav-link text-black" href="{% url 'login' %}">Log In</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 
-    <!-- -----------------Body of the web------------ -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        rel="stylesheet">
+        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    </head>
 
-    {% block content %}
-    
-    {% endblock %}
-    <div class="container mt-5 container-fluid bg-color text-center ">
+    <body>
 
-        <!-- -----------------paste the url ------------ -->
 
-        <!-- -----------------contents about url shortener----------- -->
-
-        <div class="container mt-4">
-            <div class="alert alert-info">
-                <h4 class="alert-heading">Simple and Fast URL Shortener!</h4>
-                <p>
-                    ShortURL allows you to shorten long links from various platforms like Instagram, Facebook, YouTube, Twitter, LinkedIn, WhatsApp, TikTok, blogs, and sites. Just paste the long URL and click the Shorten URL button. On the next page, copy the shortened URL and share it on sites, chats, and emails. After shortening the URL, check how many clicks it received.
-                </p>
-            </div>
-        </div>
-    
-        <div class="container mt-4">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="card card-square">
-                        <div class="card-body text-center">
-                            <span class="material-icons">
-                                thumb_up
-                                </span>
-                            <h5 class="card-title">Easy</h5>
-                            <p class="card-text">ShortURL is easy and fast, enter the long link to get your shortened link.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card card-square">
-                        <div class="card-body text-center">
-                            <span class="material-icons">
-                                link
-                                </span>
-                            <h5 class="card-title">Shortened</h5>
-                            <p class="card-text">Use any link, no matter what size, ShortURL always shortens.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card card-square">
-                        <div class="card-body text-center">
-                            <span class="material-icons">
-                                    gpp_good
-                                 </span>
-                            <h5 class="card-title">Secure</h5>
-                            <p class="card-text">It is fast and secure, our service has HTTPS protocol</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 container mt-5">
-                    <div class="card card-square">
-                        <div class="card-body text-center">
-                            <span class="material-icons">
-                                analytics
-                                </span>
-                            <h5 class="card-title">Track</h5>
-                            <p class="card-text">Access your all created stortened URLs. Maintain a small dashboard</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 container mt-5">
-                    <div class="card card-square">
-                        <div class="card-body text-center">
-                            <span class="material-icons">
-                                front_hand
-                                </span>
-                            <h5 class="card-title">Reliable</h5>
-                            <p class="card-text">All shortened links are so reliable. Providing correct results.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 container mt-5">
-                    <div class="card card-square">
-                        <div class="card-body text-center">
-                            <span class="material-icons">
-                                important_devices
-                                </span>
-                            <h5 class="card-title">Devices</h5>
-                            <p class="card-text">Compatible with smartphones, tablets and desktop.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-<!-- ----------------footer content------------ -->
-
-<footer class="footer bg-light text-dark py-4 mt-5">
-    <div class="container">
-        <div class="row text-center">
-            <div class="col-md-6 my-auto">
-                <p class="mb-3">Connect with me:</p>
-                <ul class="list-inline">
-                    <li class="list-inline-item">
-                        <a href="https://github.com/Techkrish1" target="_blank" rel="noopener noreferrer" class="footer-link">
-                            <i class="bi bi-github"></i>
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="https://www.linkedin.com/in/gokula-krishnan-venkatesan-93a3a8227" target="_blank" rel="noopener noreferrer" class="footer-link">
-                            <i class="bi bi-linkedin"></i>
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="mailto:krishgokul4002@gmail.com" class="footer-link">
-                            <i class="bi bi-envelope-fill"></i>
-                        </a>
-                    </li>
+    <!-- -----------------Navbar ------------ -->
+        
+        <nav class="navbar navbar-expand-md bg-body-tertiary">
+            <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'home' %}" style="color: blue;">URL Shortener</a>
+            <button id="navBtn" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link text-black" aria-current="page" href="{% url 'home' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link text-black" style="cursor: pointer;" onclick="myUrls()">MyURLs</div>
+                </li>
+                <li>
+                    <a class="nav-link text-black" href="{% url 'login' %}">Log In</a>
+                </li>
                 </ul>
             </div>
-            <div class="col-md-6 my-auto">
-                <p class="mb-0">© 2023 Created by Gokula Krishnan and Abishek</p>
-                <p class="mb-0"><small>All rights reserved.</small></p>
+            </div>
+        </nav>
+
+        <!-- -----------------Body of the web------------ -->
+
+        {% block content %}
+        
+        {% endblock %}
+        <div class="container mt-5 container-fluid bg-color text-center ">
+
+            <!-- -----------------paste the url ------------ -->
+
+            <!-- -----------------contents about url shortener----------- -->
+
+            <div class="container mt-4">
+                <div class="alert alert-info">
+                    <h4 class="alert-heading">Simple and Fast URL Shortener!</h4>
+                    <p>
+                        ShortURL allows you to shorten long links from various platforms like Instagram, Facebook, YouTube, Twitter, LinkedIn, WhatsApp, TikTok, blogs, and sites. Just paste the long URL and click the Shorten URL button. On the next page, copy the shortened URL and share it on sites, chats, and emails. After shortening the URL, check how many clicks it received.
+                    </p>
+                </div>
+            </div>
+        
+            <div class="container mt-4">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card card-square">
+                            <div class="card-body text-center">
+                                <span class="material-icons">
+                                    thumb_up
+                                    </span>
+                                <h5 class="card-title">Easy</h5>
+                                <p class="card-text">ShortURL is easy and fast, enter the long link to get your shortened link.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card card-square">
+                            <div class="card-body text-center">
+                                <span class="material-icons">
+                                    link
+                                    </span>
+                                <h5 class="card-title">Shortened</h5>
+                                <p class="card-text">Use any link, no matter what size, ShortURL always shortens.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card card-square">
+                            <div class="card-body text-center">
+                                <span class="material-icons">
+                                        gpp_good
+                                    </span>
+                                <h5 class="card-title">Secure</h5>
+                                <p class="card-text">It is fast and secure, our service has HTTPS protocol</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 container mt-5">
+                        <div class="card card-square">
+                            <div class="card-body text-center">
+                                <span class="material-icons">
+                                    analytics
+                                    </span>
+                                <h5 class="card-title">Track</h5>
+                                <p class="card-text">Access your all created stortened URLs. Maintain a small dashboard</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 container mt-5">
+                        <div class="card card-square">
+                            <div class="card-body text-center">
+                                <span class="material-icons">
+                                    front_hand
+                                    </span>
+                                <h5 class="card-title">Reliable</h5>
+                                <p class="card-text">All shortened links are so reliable. Providing correct results.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 container mt-5">
+                        <div class="card card-square">
+                            <div class="card-body text-center">
+                                <span class="material-icons">
+                                    important_devices
+                                    </span>
+                                <h5 class="card-title">Devices</h5>
+                                <p class="card-text">Compatible with smartphones, tablets and desktop.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</footer>
+
+    <!-- ----------------footer content------------ -->
+
+    <footer class="footer bg-light text-dark py-3 mt-5">
+        <div class="container text-center">
+                <div class="row">
+                    <p class="mb-3">Connect with me:</p>
+                </div>
+                <div class="row">
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <a href="https://github.com/Techkrish1" target="_blank" rel="noopener noreferrer">
+                                <i class="bi bi-github"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="https://www.linkedin.com/in/gokula-krishnan-venkatesan-93a3a8227" target="_blank" rel="noopener noreferrer">
+                                <i class="bi bi-linkedin"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="mailto:krishgokul4002@gmail.com">
+                                <i class="bi bi-envelope-fill"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="row my-auto">
+                    <p class="mb-0">© 2023 Created by Gokula Krishnan and Abishek</p>
+                    <p class="mb-0"><small>All rights reserved.</small></p>
+                </div>
+        </div>
+    </footer>
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-</body>
-<script>
-    function myUrls(){
-    var user_ID=localStorage.getItem("urlUserID");
-    console.log(user_ID);
-    if(user_ID){
-      window.location.href=window.location.origin+"/myurl/"+user_ID;
-    }else{
-      window.location.href=window.location.origin+"/myurl/"+0;
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    </body>
+    <script>
+        function myUrls(){
+        var user_ID=localStorage.getItem("urlUserID");
+        console.log(user_ID);
+        if(user_ID){
+        window.location.href=window.location.origin+"/myurl/"+user_ID;
+        }else{
+        window.location.href=window.location.origin+"/myurl/"+0;
+        }
     }
-  }
-</script>
+    </script>
 </html>

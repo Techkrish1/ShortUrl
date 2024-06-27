@@ -5,14 +5,11 @@ import random
 from .models import urlModel,Userdetail
 from django.contrib.auth.hashers import make_password,check_password
 from django.views.decorators.csrf import csrf_exempt
-
 import json
 from django.http import JsonResponse
 import random
 
 def home(request):
-    # for i in range(5000):
-    #     urlModel.objects.create()
     return render(request, 'landingPage.html')
 
 def login(request):
@@ -46,6 +43,7 @@ def makeshorturl(request):
         obj = urlModel.objects.create(longurl=longurl, shorturl=shorturl)
         created_shorturl = "http://127.0.0.1:8000/" + shorturl
     return render(request, 'urlcreated.html', {"shorturl": created_shorturl, 'longurl': longurl})
+
 def displayUrl(request,short):
     url=urlModel.objects.filter(shorturl=short)
     if len(url)>0:
@@ -53,6 +51,8 @@ def displayUrl(request,short):
         created_shorturl =full_url + url[0].shorturl
         return render(request, 'urlcreated.html', {"shorturl": created_shorturl, 'longurl': url[0].longurl})
     return render(request, 'urlcreated.html', {"shorturl": short})
+
+
 @csrf_exempt 
 def createurl(request):
     if request.method=='POST':
@@ -90,6 +90,8 @@ def createurl(request):
             print(e)
             return JsonResponse({'shorturl':""})
     return JsonResponse({'shorturl':""})
+
+
 def redirecturl(request, shorturl):
     try:
         obj = urlModel.objects.get(shorturl=shorturl)

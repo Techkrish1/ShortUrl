@@ -2,8 +2,6 @@ h1, h2{
     color: blue;
 }
 
-
-
 .card{
     border: none;
 }
@@ -11,6 +9,7 @@ h1, h2{
 table {
     width: auto;
 }
+
 th, td {
     text-align: center;
 }
@@ -53,8 +52,3 @@ span.material-icons{
         margin-bottom: 1rem;
     }
 }
-/* .authbox{
-    width: 100%;
-    max-width: 400px;
-    margin: 0 auto;
-} */

@@ -7,7 +7,7 @@ urlpatterns = [
     path('login/',views.login,name='login'),
     path('saveuser/',views.saveuser,name='saveuser'),
     path('createurl/',views.createurl,name='createurl'),
-     path('myurl/<user_id>/',views.getMyUrls,name='myurls'),
+    path('myurl/<user_id>/',views.getMyUrls,name='myurls'),
     path('shortener', views.makeshorturl),
     path('created/<short>/',views.displayUrl,name='displayurl'),
     path("<str:shorturl>", views.redirecturl)
