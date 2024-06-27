@@ -16,11 +16,11 @@
 
 ### Demo
 
-This is a brief demo of the functionality of the project.
+You can check out the functionality of the project using this link.
 
-<p align="center">
-<img src="video_src/URL shortener.gif" alt="demo video" width="720"/>
-</p>
+```
+https://shorturl-kaoj.onrender.com/
+```
 
 <br />
 
@@ -37,8 +37,9 @@ This is a brief demo of the functionality of the project.
 
 ### Features
 
-- Django LTS
-- Sturctured DataBase
+- User Authentication
+- DataBase Linked
+- Track User's created Urls
 - Fully Responsive for all Devices
 - Generating Short urls
 
